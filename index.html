@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<body>
+  <style>
+    a, input { display: block; }
+  </style>
+  <h1>Score Card Creator</h1>
+  <label for="csv-uploader">Choose csv to create splash screens</label>
+  <input type="file" id="csv-uploader">
+  <p>
+    Please follow the format that is in the google doc otherwise it will probably parse it strangely. Don't worry about colors. Next to the player name put the score the player is <strong>starting</strong> the round at separated by a colon.
+    <a href="https://docs.google.com/spreadsheets/d/1N5D7FeCyNlyyMRdRQPXXIvA-8_hWvB-4CCoVX1U6DUI/edit?usp=sharing">Example Spreadsheet</a>
+  </p>
+
+  <canvas id="myCanvas" style="display: none" width="1920" height="1080"></canvas>
+
+<!--480px on right for text-->
+<script src="//cdnjs.cloudflare.com/ajax/libs/js-signals/0.8.1/js-signals.min.js"></script>
+<script src="javascripts/Round.js" type="text/javascript" charset="utf-8"></script>
+<script src="javascripts/Course.js" type="text/javascript" charset="utf-8"></script>
+<script src="javascripts/app.js" type="text/javascript" charset="utf-8"></script>
+
+</body>
+</html>
