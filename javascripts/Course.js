@@ -8,3 +8,10 @@ Course.prototype = {
     return this.parData[hole - 1];
   }
 };
+
+Course.csvToCourse = function(csvRow) {
+  var parData = csvRow.split(",").filter(function(cell) {
+    return Number(cell) > 0;
+  });
+  return new Course(parData);
+};
