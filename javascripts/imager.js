@@ -10,6 +10,7 @@ var ctx = canvas.getContext("2d");
 var img = new Image();
 
 if (app.debug) {
+  canvas.style.display = "block";
   img.onload = function() {
     parseCsvData(debug);
   };
@@ -29,7 +30,7 @@ ctx.shadowBlur = 4;
 ctx.shadowColor = 'rgba(0, 0, 0, 0.6)'
 
 function onCompleted(rounds) {
-  for (var i = 1; i <= app.course.numberOfHoles; i++) {
+  for (var i = app.debug ? app.course.numberOfHoles : 1; i <= app.course.numberOfHoles; i++) {
     ctx.drawImage(img, 0, 0);
     var txtPos = 0;
     rounds.forEach(function(r) {
