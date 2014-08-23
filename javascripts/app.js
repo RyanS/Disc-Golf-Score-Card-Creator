@@ -1,6 +1,6 @@
 var debug = {
   target: {
-    result: ",,Par,3,3,4,3,5,3,4,5,4\n,,,,,,,,,,,\nName,Tourn. Score at Start,Rnd Score at Start,,,,,,,,,\nPaul McBeth,-63,-10,3,2,3,2,4,4,3,4,3\nRichard Wysocki,-63,-10,4,2,4,2,4,3,5,3,3\nNathan Doss,-58,5,3,5,4,2,4,2,3,4,3\nPaul Ulibarri,-59,-3,3,3,3,3,5,3,5,4,5"
+    result: ",,Par,3,3,4,3,5,3,4,5,4\n,,,,,,,,,,,\nName,Tourn. Score at Start,Rnd Score at Start,,,,,,,,,\nPaul McBeth,-10,0,3,3,4,3,5,3,4,5,4\nRichard Wysocki,-10,0,2,2,3,2,4,2,3,4,3\nNathan Doss,-10,0,4,4,5,4,6,4,5,6,5\nPaul Ulibarri,-10,0,3,3,3,3,5,3,5,4,5"
   }
 };
 

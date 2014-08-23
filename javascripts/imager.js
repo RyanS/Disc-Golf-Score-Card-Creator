@@ -21,7 +21,7 @@ img.src = "bg.jpg";
 ctx.font = "bold "+ FONT_SIZE +"px Arial";
 ctx.textBaseline = "top";
 ctx.fillStyle = "white";
-ctx.strokeStyle = "black";
+ctx.strokeStyle = "rgba(0,0,0,.8)";
 ctx.lineWidth = 3;
 
 ctx.shadowOffsetX = 1;
@@ -34,10 +34,7 @@ function onCompleted(rounds) {
     ctx.drawImage(img, 0, 0);
     var txtPos = 0;
     rounds.forEach(function(r) {
-      var tmp = r.getHoleScoreLine(i);
-
-      ctx.strokeText(tmp.join(" "),TXT_STARTING_POINT,txtPos + H_OFFSET);
-      ctx.fillText(tmp.join(" "),TXT_STARTING_POINT,txtPos + H_OFFSET);
+      drawScoreLine(r.getHoleScoreLine(i), txtPos + H_OFFSET, r.getScoreForHole(i));
 
       txtPos += FONT_SIZE + LEADING;
     });
@@ -52,4 +49,29 @@ function onCompleted(rounds) {
       ctx.clearRect(0,0,DIMENSIONS[0],DIMENSIONS[1]);
     }
   }
+}
+
+function drawScoreLine(line, vPos, score) {
+  var stPnt = TXT_STARTING_POINT,
+    color = "white";
+
+  if (score > 0) {
+    color = "#0071FF";
+  } else if (score < 0) {
+    color = "#FF1800";
+  }
+
+  ctx.strokeText(line[0], stPnt, vPos);
+  ctx.fillText(line[0], stPnt, vPos);
+
+  ctx.fillStyle = color;
+  stPnt += ctx.measureText(line[0]).width + 20;
+  ctx.strokeText(line[1], stPnt, vPos);
+  ctx.fillText(line[1], stPnt, vPos);
+
+  stPnt += ctx.measureText(line[1]).width + 20;
+  ctx.strokeText(line[2], stPnt, vPos);
+  ctx.fillText(line[2], stPnt, vPos);
+
+  ctx.fillStyle = "white";
 }
