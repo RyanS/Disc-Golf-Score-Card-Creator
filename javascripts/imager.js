@@ -14,6 +14,11 @@ if (app.debug) {
   img.onload = function() {
     parseCsvData(debug);
   };
+  var btn = document.getElementById("regenerate")
+  btn.style.display = "block";
+  btn.addEventListener("click", function(){
+    parseCsvData(debug);
+  });
 }
 
 img.src = "bg.jpg";
@@ -28,6 +33,8 @@ ctx.shadowOffsetX = 1;
 ctx.shadowOffsetY = 1;
 ctx.shadowBlur = 4;
 ctx.shadowColor = 'rgba(0, 0, 0, 0.6)'
+
+var tourneyScoreEl = document.getElementById("display-tournament-score");
 
 function onCompleted(rounds) {
   for (var i = app.debug ? app.course.numberOfHoles : 1; i <= app.course.numberOfHoles; i++) {
@@ -69,9 +76,11 @@ function drawScoreLine(line, vPos, score) {
   ctx.strokeText(line[1], stPnt, vPos);
   ctx.fillText(line[1], stPnt, vPos);
 
-  stPnt += ctx.measureText(line[1]).width + 20;
-  ctx.strokeText(line[2], stPnt, vPos);
-  ctx.fillText(line[2], stPnt, vPos);
+  if (tourneyScoreEl.checked) {
+    stPnt += ctx.measureText(line[1]).width + 20;
+    ctx.strokeText(line[2], stPnt, vPos);
+    ctx.fillText(line[2], stPnt, vPos);
+  }
 
   ctx.fillStyle = "white";
 }

@@ -2,7 +2,7 @@
 <html>
 <body>
   <style>
-    a, input { display: block; }
+    a, input[type='file'] { display: block; }
   </style>
   <h1>Score Card Creator</h1>
   <label for="csv-uploader">Choose csv to create splash screens</label>
@@ -11,6 +11,11 @@
     Please follow the format that is in the google doc otherwise it will probably parse it strangely.
     <a href="https://docs.google.com/spreadsheets/d/1N5D7FeCyNlyyMRdRQPXXIvA-8_hWvB-4CCoVX1U6DUI/edit?usp=sharing">Example Spreadsheet</a>
   </p>
+  <p>
+    <input type="checkbox" id="display-tournament-score" checked>
+    <label for="display-tournament-score">Display tournament score</label>
+  </p>
+  <button id="regenerate" style="display:none">regenerate</button>
 
   <canvas id="myCanvas" style="display: none" width="1920" height="1080"></canvas>
 
